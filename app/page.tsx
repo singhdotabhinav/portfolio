@@ -129,15 +129,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-            >
-              AVK
-            </motion.div>
+          <div className="flex justify-end items-center">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -158,12 +150,12 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
         <div className="container mx-auto px-6 py-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6"
+              className="space-y-6 md:col-span-1"
             >
               <motion.div
                 initial={{ opacity: 0 }}
@@ -229,11 +221,16 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="relative h-[500px] rounded-2xl overflow-hidden"
+              className="relative flex items-center justify-end md:justify-end rounded-2xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-pink-900/20 p-4 shadow-lg shadow-purple-500/20"
+              style={{
+                width: '420px',
+                height: '420px',
+                minWidth: '420px',
+                minHeight: '420px',
+                marginLeft: 'auto'
+              }}
             >
-              <Card className="w-full h-full bg-black/[0.96] border-purple-500/20">
-                <AnimatedCharacter className="w-full h-full" />
-              </Card>
+              <AnimatedCharacter className="w-full h-full" />
             </motion.div>
           </div>
         </div>

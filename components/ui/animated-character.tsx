@@ -177,105 +177,95 @@ export function AnimatedCharacter({
   }, [isAnimated])
 
   return (
-    <div className={`relative w-full h-full flex items-center justify-center min-h-[500px] ${className}`} style={{ minHeight: '500px' }}>
-      <div className="relative w-full h-full flex items-center justify-center" style={{ width: '100%', height: '100%', minHeight: '500px' }}>
-        {videoError && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-red-900/20 rounded-lg p-4">
-            <p className="text-red-400 text-sm text-center mb-2">{videoError}</p>
-            <p className="text-gray-400 text-xs text-center max-w-md">
-              Your video files may need to be converted to H.264 codec for better browser compatibility.
-            </p>
-          </div>
+    <div 
+      className={`relative flex items-center justify-center ${className}`}
+      style={{ 
+        width: '420px',
+        height: '420px',
+        minWidth: '420px',
+        minHeight: '420px'
+      }}
+    >
+      {videoError && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-red-900/20 rounded-lg p-4">
+          <p className="text-red-400 text-sm text-center mb-2">{videoError}</p>
+          <p className="text-gray-400 text-xs text-center max-w-md">
+            Your video files may need to be converted to H.264 codec for better browser compatibility.
+          </p>
+        </div>
+      )}
+
+      {!videoLoaded && !videoError && (
+        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+          <div className="text-gray-400">Loading video...</div>
+        </div>
+      )}
+
+      <AnimatePresence mode="wait">
+        {!isAnimated && (
+          <motion.div
+            key="waving"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ width: '420px', height: '420px' }}
+          >
+            <video
+              ref={wavingVideoRef}
+              src={wavingVideoWithCache}
+              style={{ 
+                width: '420px',
+                height: '420px',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+              loop
+              muted
+              playsInline
+              autoPlay
+              preload="auto"
+              onError={handleVideoError}
+              onLoadedData={handleVideoLoaded}
+              onCanPlay={handleVideoLoaded}
+              onLoadedMetadata={handleMetadataLoaded}
+            >
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
         )}
 
-        {!videoLoaded && !videoError && (
-          <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-            <div className="text-gray-400">Loading video...</div>
-          </div>
+        {isAnimated && (
+          <motion.div
+            key="working"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{ width: '420px', height: '420px' }}
+          >
+            <video
+              ref={workingVideoRef}
+              src={workingVideoWithCache}
+              style={{ 
+                width: '420px',
+                height: '420px',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+              loop
+              muted
+              playsInline
+              autoPlay
+              preload="auto"
+              onError={handleVideoError}
+              onLoadedData={handleVideoLoaded}
+              onCanPlay={handleVideoLoaded}
+              onLoadedMetadata={handleMetadataLoaded}
+            >
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
         )}
-
-        <AnimatePresence mode="wait">
-          {!isAnimated && (
-            <motion.div
-              key="waving"
-              initial={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative flex items-center justify-center"
-              style={{ 
-                width: '100%',
-                height: '100%',
-                minHeight: '500px',
-                maxWidth: '624px',
-                maxHeight: '624px',
-                margin: '0 auto'
-              }}
-            >
-              <video
-                ref={wavingVideoRef}
-                src={wavingVideoWithCache}
-                style={{ 
-                  width: '624px',
-                  height: '624px',
-                  objectFit: 'contain',
-                  display: 'block'
-                }}
-                loop
-                muted
-                playsInline
-                autoPlay
-                preload="auto"
-                onError={handleVideoError}
-                onLoadedData={handleVideoLoaded}
-                onCanPlay={handleVideoLoaded}
-                onLoadedMetadata={handleMetadataLoaded}
-              >
-                Your browser does not support the video tag.
-              </video>
-            </motion.div>
-          )}
-
-          {isAnimated && (
-            <motion.div
-              key="working"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative flex items-center justify-center"
-              style={{ 
-                width: '100%',
-                height: '100%',
-                minHeight: '500px',
-                maxWidth: '624px',
-                maxHeight: '624px',
-                margin: '0 auto'
-              }}
-            >
-              <video
-                ref={workingVideoRef}
-                src={workingVideoWithCache}
-                style={{ 
-                  width: '624px',
-                  height: '624px',
-                  objectFit: 'contain',
-                  display: 'block'
-                }}
-                loop
-                muted
-                playsInline
-                autoPlay
-                preload="auto"
-                onError={handleVideoError}
-                onLoadedData={handleVideoLoaded}
-                onCanPlay={handleVideoLoaded}
-                onLoadedMetadata={handleMetadataLoaded}
-              >
-                Your browser does not support the video tag.
-              </video>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+      </AnimatePresence>
     </div>
   )
 }
