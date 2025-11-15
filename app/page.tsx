@@ -183,18 +183,28 @@ export default function Home() {
               </p>
               
               <div className="flex flex-wrap gap-4 text-sm">
-                <div className="flex items-center gap-2">
+                <a 
+                  href="https://maps.app.goo.gl/TNjvUXnb8gC949B18" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-purple-400 transition-colors cursor-pointer"
+                >
                   <MapPin className="w-4 h-4 text-purple-400" />
                   <span>Bengaluru, India</span>
-                </div>
+                </a>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-purple-400" />
                   <span>+91 9916118034</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-purple-400" />
-                  <span>Email</span>
-                </div>
+                <a 
+                  href="https://www.linkedin.com/in/dotabhinav/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-purple-400 transition-colors cursor-pointer"
+                >
+                  <Linkedin className="w-4 h-4 text-purple-400" />
+                  <span>LinkedIn</span>
+                </a>
               </div>
               
               <div className="flex gap-4 pt-4">
@@ -521,29 +531,55 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="grid md:grid-cols-3 gap-6"
           >
-            <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-purple-500/20 hover:border-purple-500/50 transition-all text-center">
-              <CardContent className="pt-6">
-                <Mail className="w-8 h-8 text-purple-400 mx-auto mb-4" />
-                <CardTitle className="mb-2">Email</CardTitle>
-                <CardDescription>Available for opportunities</CardDescription>
-              </CardContent>
-            </Card>
+            <a
+              href="mailto:abhinav6400625@gmail.com"
+              className="block"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-purple-500/20 hover:border-purple-500/50 transition-all text-center cursor-pointer h-full">
+                  <CardContent className="pt-6">
+                    <Mail className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+                    <CardTitle className="mb-2">Email</CardTitle>
+                    <CardDescription>Available for opportunities</CardDescription>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </a>
             
-            <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-purple-500/20 hover:border-purple-500/50 transition-all text-center">
-              <CardContent className="pt-6">
-                <Linkedin className="w-8 h-8 text-purple-400 mx-auto mb-4" />
-                <CardTitle className="mb-2">LinkedIn</CardTitle>
-                <CardDescription>Connect with me</CardDescription>
-              </CardContent>
-            </Card>
+            <motion.a
+              href="https://www.linkedin.com/in/dotabhinav/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-purple-500/20 hover:border-purple-500/50 transition-all text-center cursor-pointer h-full">
+                <CardContent className="pt-6">
+                  <Linkedin className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+                  <CardTitle className="mb-2">LinkedIn</CardTitle>
+                  <CardDescription>Connect with me</CardDescription>
+                </CardContent>
+              </Card>
+            </motion.a>
             
-            <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-purple-500/20 hover:border-purple-500/50 transition-all text-center">
-              <CardContent className="pt-6">
-                <Github className="w-8 h-8 text-purple-400 mx-auto mb-4" />
-                <CardTitle className="mb-2">GitHub</CardTitle>
-                <CardDescription>View my projects</CardDescription>
-              </CardContent>
-            </Card>
+            <motion.a
+              href="https://github.com/singhdotabhinav"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-purple-500/20 hover:border-purple-500/50 transition-all text-center cursor-pointer h-full">
+                <CardContent className="pt-6">
+                  <Github className="w-8 h-8 text-purple-400 mx-auto mb-4" />
+                  <CardTitle className="mb-2">GitHub</CardTitle>
+                  <CardDescription>View my projects</CardDescription>
+                </CardContent>
+              </Card>
+            </motion.a>
           </motion.div>
         </div>
       </section>
