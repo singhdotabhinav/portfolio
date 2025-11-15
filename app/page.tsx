@@ -521,7 +521,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Get In Touch
             </h2>
-            <p className="text-gray-400 text-lg">Let's connect and discuss opportunities</p>
+            <p className="text-gray-400 text-lg">Let&apos;s connect and discuss opportunities</p>
           </motion.div>
           
           <motion.div

@@ -1,22 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async headers() {
-    return [
-      {
-        source: '/videos/:path*',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'video/mp4',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
+  output: 'export',
+  images: {
+    unoptimized: true,
   },
+  // Remove trailing slash for GitHub Pages compatibility
+  trailingSlash: false,
+  // If deploying to a subdirectory, uncomment and set your repo name:
+  // basePath: '/portfolio',
+  // assetPrefix: '/portfolio',
 };
 
 export default nextConfig;

@@ -69,17 +69,31 @@ Edit `app/page.tsx` to update:
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
-1. Push your code to GitHub
-2. Import your repository on [Vercel](https://vercel.com)
-3. Vercel will automatically detect Next.js and deploy
+### GitHub Pages (Free)
+This portfolio is configured for GitHub Pages deployment:
+
+1. **Push your code to GitHub:**
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
+   git push -u origin main
+   ```
+
+2. **Enable GitHub Pages:**
+   - Go to your repository on GitHub
+   - Click on **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions**
+   - The workflow will automatically deploy on every push to `main`
+
+3. **Your site will be live at:**
+   - `https://YOUR_USERNAME.github.io/portfolio/` (if repo name is `portfolio`)
+   - Or `https://YOUR_USERNAME.github.io/` (if repo name matches your username)
+
+**Note:** If deploying to a subdirectory, update `basePath` and `assetPrefix` in `next.config.mjs`
 
 ### Other Platforms
-This is a standard Next.js application and can be deployed on:
-- Netlify
-- AWS Amplify
-- Railway
-- Any platform that supports Next.js
+- **Vercel**: Import repository, auto-deploys
+- **Netlify**: Connect GitHub repo, auto-deploys
+- **AWS Amplify**: Connect GitHub repo, auto-deploys
 
 ## 📄 License
 

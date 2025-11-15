@@ -37,4 +37,3 @@ next-env.d.ts
 # video backups
 *.backup
 *_original.*
-
