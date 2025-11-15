@@ -25,8 +25,10 @@ export function AnimatedCharacter({
     setMounted(true)
   }, [])
   
-  const wavingVideoWithCache = mounted ? `${wavingVideo}?v=2` : wavingVideo
-  const workingVideoWithCache = mounted ? `${workingVideo}?v=2` : workingVideo
+  // Use timestamp for cache busting to ensure fresh videos on GitHub Pages
+  const [cacheVersion] = useState(() => Date.now())
+  const wavingVideoWithCache = mounted ? `${wavingVideo}?v=${cacheVersion}` : wavingVideo
+  const workingVideoWithCache = mounted ? `${workingVideo}?v=${cacheVersion}` : workingVideo
 
   useEffect(() => {
     if (wavingVideoRef.current && !isAnimated) {
