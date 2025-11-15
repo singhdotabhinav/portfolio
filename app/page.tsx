@@ -125,7 +125,7 @@ export default function Home() {
   ]
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-y-auto">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-6 py-4">
@@ -147,15 +147,15 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-y-auto">
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
-        <div className="container mx-auto px-4 md:px-6 py-8 md:py-20">
+        <div className="container mx-auto px-4 md:px-6 py-8 md:py-20 w-full">
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 md:col-span-1"
+              className="space-y-6 md:col-span-1 w-full"
             >
               <motion.div
                 initial={{ opacity: 0 }}
