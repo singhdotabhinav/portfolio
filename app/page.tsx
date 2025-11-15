@@ -231,7 +231,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="relative flex items-center justify-center md:justify-end rounded-2xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-pink-900/20 p-4 shadow-lg shadow-purple-500/20"
+              className="relative flex items-center justify-center md:justify-end"
               style={{
                 width: '420px',
                 height: '420px',
