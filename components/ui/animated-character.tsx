@@ -11,8 +11,8 @@ interface AnimatedCharacterProps {
 
 export function AnimatedCharacter({ 
   className,
-  wavingVideo = '/videos/waving.MP4',
-  workingVideo = '/videos/working.MP4'
+  wavingVideo = '/portfolio/videos/waving.MP4',
+  workingVideo = '/portfolio/videos/working.MP4'
 }: AnimatedCharacterProps) {
   const [isAnimated, setIsAnimated] = useState(false)
   const [videoError, setVideoError] = useState<string | null>(null)
