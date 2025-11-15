@@ -128,13 +128,13 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-y-auto">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/10">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-end items-center">
+        <div className="container mx-auto px-4 md:px-6 py-4">
+          <div className="flex justify-end items-center overflow-x-auto scrollbar-hide">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex gap-6"
+              className="flex gap-4 md:gap-6 whitespace-nowrap"
             >
               <a href="#about" className="hover:text-purple-400 transition-colors">About</a>
               <a href="#experience" className="hover:text-purple-400 transition-colors">Experience</a>
