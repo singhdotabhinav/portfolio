@@ -149,13 +149,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
-        <div className="container mx-auto px-6 py-20">
-          <div className="grid md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
+        <div className="container mx-auto px-4 md:px-6 py-8 md:py-20">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 md:col-span-1"
+              className="space-y-4 md:space-y-6 md:col-span-1 overflow-y-auto max-h-[calc(100vh-120px)] pr-2"
             >
               <motion.div
                 initial={{ opacity: 0 }}
@@ -231,13 +231,10 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="relative flex items-center justify-end md:justify-end rounded-2xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-pink-900/20 p-4 shadow-lg shadow-purple-500/20"
+              className="relative flex items-center justify-center md:justify-end rounded-2xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-pink-900/20 p-2 md:p-4 shadow-lg shadow-purple-500/20 w-full max-w-[420px] mx-auto md:mx-0 md:ml-auto my-4 md:my-0"
               style={{
-                width: '420px',
                 height: '420px',
-                minWidth: '420px',
-                minHeight: '420px',
-                marginLeft: 'auto'
+                minHeight: '420px'
               }}
             >
               <AnimatedCharacter className="w-full h-full" />

@@ -198,12 +198,13 @@ export function AnimatedCharacter({
 
   return (
     <div 
-      className={`relative flex items-center justify-center ${className}`}
+      className={`relative flex items-center justify-center mx-auto ${className}`}
       style={{ 
-        width: '420px',
+        width: '100%',
+        maxWidth: '420px',
         height: '420px',
-        minWidth: '420px',
-        minHeight: '420px'
+        minHeight: '420px',
+        padding: '0 1rem'
       }}
     >
       {videoError && (
@@ -228,14 +229,18 @@ export function AnimatedCharacter({
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            style={{ width: '420px', height: '420px' }}
+            className="w-full h-full"
+            style={{ maxWidth: '420px', maxHeight: '420px' }}
           >
             <video
               ref={wavingVideoRef}
               src={wavingVideoWithCache}
+              className="w-full h-full"
               style={{ 
-                width: '420px',
-                height: '420px',
+                maxWidth: '420px',
+                maxHeight: '420px',
+                width: '100%',
+                height: 'auto',
                 objectFit: 'contain',
                 display: 'block'
               }}
@@ -244,6 +249,9 @@ export function AnimatedCharacter({
               playsInline
               autoPlay
               preload="auto"
+              controls={false}
+              disablePictureInPicture
+              disableRemotePlayback
               onError={handleVideoError}
               onLoadedData={handleVideoLoaded}
               onCanPlay={handleVideoLoaded}
@@ -260,14 +268,18 @@ export function AnimatedCharacter({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            style={{ width: '420px', height: '420px' }}
+            className="w-full h-full"
+            style={{ maxWidth: '420px', maxHeight: '420px' }}
           >
             <video
               ref={workingVideoRef}
               src={workingVideoWithCache}
+              className="w-full h-full"
               style={{ 
-                width: '420px',
-                height: '420px',
+                maxWidth: '420px',
+                maxHeight: '420px',
+                width: '100%',
+                height: 'auto',
                 objectFit: 'contain',
                 display: 'block'
               }}
@@ -276,6 +288,9 @@ export function AnimatedCharacter({
               playsInline
               autoPlay
               preload="auto"
+              controls={false}
+              disablePictureInPicture
+              disableRemotePlayback
               onError={handleVideoError}
               onLoadedData={handleVideoLoaded}
               onCanPlay={handleVideoLoaded}
