@@ -177,7 +177,7 @@ export default function Home() {
               
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                  Abhinav V Kumar
+                  Abhinav
                 </span>
               </h1>
               
@@ -554,7 +554,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-white/10">
         <div className="container mx-auto text-center text-gray-400">
-          <p>© 2024 Abhinav V Kumar. All rights reserved.</p>
+          <p>© 2024 Abhinav. All rights reserved.</p>
         </div>
       </footer>
     </main>

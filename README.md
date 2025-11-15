@@ -1,4 +1,4 @@
-# Portfolio Website - Abhinav V Kumar
+# Portfolio Website - Abhinav
 
 A modern, interactive portfolio website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Features interactive video animations and a beautiful gradient design.
 
@@ -87,7 +87,7 @@ MIT License - feel free to use this template for your own portfolio!
 
 ## 👤 Author
 
-**Abhinav V Kumar**
+**Abhinav**
 - Senior Software Engineer
 - Python | AWS | Snowflake | Generative AI
 - Bengaluru, India

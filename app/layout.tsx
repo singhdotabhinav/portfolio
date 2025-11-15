@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Abhinav V Kumar - Senior Software Engineer",
-  description: "Portfolio of Abhinav V Kumar - Senior Software Engineer specializing in Python, AWS, Snowflake, and Generative AI",
+  title: "Abhinav - Senior Software Engineer",
+  description: "Portfolio of Abhinav - Senior Software Engineer specializing in Python, AWS, Snowflake, and Generative AI",
 };
 
 export default function RootLayout({
