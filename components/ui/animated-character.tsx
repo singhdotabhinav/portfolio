@@ -9,11 +9,29 @@ interface AnimatedCharacterProps {
   workingVideo?: string
 }
 
+// Get basePath from Next.js config (defaults to empty string for root)
+const getBasePath = () => {
+  if (typeof window !== 'undefined') {
+    // Client-side: extract basePath from current path
+    const path = window.location.pathname;
+    if (path.startsWith('/portfolio')) {
+      return '/portfolio';
+    }
+  }
+  return process.env.NEXT_PUBLIC_BASE_PATH || '';
+};
+
 export function AnimatedCharacter({ 
   className,
-  wavingVideo = '/portfolio/videos/waving.MP4',
-  workingVideo = '/portfolio/videos/working.MP4'
+  wavingVideo,
+  workingVideo
 }: AnimatedCharacterProps) {
+  const basePath = getBasePath();
+  const defaultWavingVideo = `${basePath}/videos/waving.MP4`;
+  const defaultWorkingVideo = `${basePath}/videos/working.MP4`;
+  
+  const finalWavingVideo = wavingVideo || defaultWavingVideo;
+  const finalWorkingVideo = workingVideo || defaultWorkingVideo;
   const [isAnimated, setIsAnimated] = useState(false)
   const [videoError, setVideoError] = useState<string | null>(null)
   const [videoLoaded, setVideoLoaded] = useState(false)
@@ -27,8 +45,8 @@ export function AnimatedCharacter({
   
   // Use timestamp for cache busting to ensure fresh videos on GitHub Pages
   const [cacheVersion] = useState(() => Date.now())
-  const wavingVideoWithCache = mounted ? `${wavingVideo}?v=${cacheVersion}` : wavingVideo
-  const workingVideoWithCache = mounted ? `${workingVideo}?v=${cacheVersion}` : workingVideo
+  const wavingVideoWithCache = mounted ? `${finalWavingVideo}?v=${cacheVersion}` : finalWavingVideo
+  const workingVideoWithCache = mounted ? `${finalWorkingVideo}?v=${cacheVersion}` : finalWorkingVideo
 
   useEffect(() => {
     if (wavingVideoRef.current && !isAnimated) {
