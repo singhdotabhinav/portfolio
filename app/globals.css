@@ -89,7 +89,13 @@ video::-webkit-media-controls-start-playback-button {
   display: none !important;
 }
 
+/* Hide play button overlay */
+video::before {
+  display: none !important;
+}
+
 video {
-  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 

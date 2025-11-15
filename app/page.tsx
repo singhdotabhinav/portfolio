@@ -155,7 +155,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8 }}
-              className="space-y-4 md:space-y-6 md:col-span-1 overflow-y-auto max-h-[calc(100vh-120px)] pr-2"
+              className="space-y-6 md:col-span-1"
             >
               <motion.div
                 initial={{ opacity: 0 }}
@@ -231,10 +231,14 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="relative flex items-center justify-center md:justify-end rounded-2xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-pink-900/20 p-2 md:p-4 shadow-lg shadow-purple-500/20 w-full max-w-[420px] mx-auto md:mx-0 md:ml-auto my-4 md:my-0"
+              className="relative flex items-center justify-center md:justify-end rounded-2xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-pink-900/20 p-4 shadow-lg shadow-purple-500/20"
               style={{
+                width: '420px',
                 height: '420px',
-                minHeight: '420px'
+                minWidth: '420px',
+                minHeight: '420px',
+                marginLeft: 'auto',
+                marginRight: '1rem'
               }}
             >
               <AnimatedCharacter className="w-full h-full" />
