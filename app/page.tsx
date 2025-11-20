@@ -2,18 +2,19 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { AnimatedCharacter } from '@/components/ui/animated-character'
+import dynamic from 'next/dynamic'
+const InteractiveScene = dynamic(() => import('@/components/ui/interactive-scene').then(mod => mod.InteractiveScene), { ssr: false })
 import { Spotlight } from '@/components/ui/spotlight'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Linkedin, 
-  Github, 
-  Code, 
-  Cloud, 
-  Database, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  Code,
+  Cloud,
+  Database,
   Brain,
   Award,
   Briefcase,
@@ -166,26 +167,26 @@ export default function Home() {
                 <Sparkles className="w-4 h-4 text-purple-400" />
                 <span className="text-sm">Available for opportunities</span>
               </motion.div>
-              
+
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                   Abhinav
                 </span>
               </h1>
-              
+
               <h2 className="text-2xl md:text-3xl text-gray-300">
                 Senior Software Engineer
               </h2>
-              
+
               <p className="text-lg text-gray-400 max-w-xl">
-                Results-driven engineer with 5+ years of experience designing and scaling cloud-native backend platforms, 
+                Results-driven engineer with 5+ years of experience designing and scaling cloud-native backend platforms,
                 architecting AI-powered solutions, and leading cross-functional teams.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 text-sm">
-                <a 
-                  href="https://maps.app.goo.gl/TNjvUXnb8gC949B18" 
-                  target="_blank" 
+                <a
+                  href="https://maps.app.goo.gl/TNjvUXnb8gC949B18"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-purple-400 transition-colors cursor-pointer"
                 >
@@ -196,7 +197,7 @@ export default function Home() {
                   <Phone className="w-4 h-4 text-purple-400" />
                   <span>+91 9916118034</span>
                 </div>
-                <a 
+                <a
                   href="https://www.linkedin.com/in/dotabhinav/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -206,7 +207,7 @@ export default function Home() {
                   <span>LinkedIn</span>
                 </a>
               </div>
-              
+
               <div className="flex gap-4 pt-4">
                 <motion.a
                   href="#contact"
@@ -226,7 +227,7 @@ export default function Home() {
                 </motion.a>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
@@ -241,7 +242,7 @@ export default function Home() {
                 marginRight: '1rem'
               }}
             >
-              <AnimatedCharacter className="w-full h-full" />
+              <InteractiveScene className="w-full h-full" />
             </motion.div>
           </div>
         </div>
@@ -262,7 +263,7 @@ export default function Home() {
             </h2>
             <p className="text-gray-400 text-lg">Driving innovation and measurable business impact</p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {achievements.map((achievement, index) => {
               const Icon = achievement.icon
@@ -310,7 +311,7 @@ export default function Home() {
             </h2>
             <p className="text-gray-400 text-lg">Building scalable solutions at Cimpress</p>
           </motion.div>
-          
+
           <div className="max-w-4xl mx-auto space-y-8">
             {experiences.map((exp, index) => (
               <motion.div
@@ -372,7 +373,7 @@ export default function Home() {
             </h2>
             <p className="text-gray-400 text-lg">Innovative solutions and open-source contributions</p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <motion.div
@@ -427,7 +428,7 @@ export default function Home() {
             </h2>
             <p className="text-gray-400 text-lg">Technologies I work with</p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {Object.entries(skills).map(([category, items], index) => (
               <motion.div
@@ -480,7 +481,7 @@ export default function Home() {
               Education
             </h2>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -524,7 +525,7 @@ export default function Home() {
             </h2>
             <p className="text-gray-400 text-lg">Let&apos;s connect and discuss opportunities</p>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -549,7 +550,7 @@ export default function Home() {
                 </Card>
               </motion.div>
             </a>
-            
+
             <motion.a
               href="https://www.linkedin.com/in/dotabhinav/"
               target="_blank"
@@ -565,7 +566,7 @@ export default function Home() {
                 </CardContent>
               </Card>
             </motion.a>
-            
+
             <motion.a
               href="https://github.com/singhdotabhinav"
               target="_blank"
