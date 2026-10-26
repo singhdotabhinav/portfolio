@@ -1,0 +1,368 @@
+<p>test</p>
+  line2<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Abhinav Kumar Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column, text first. Labels sit in a left rail on wide screens, stack on phones. */
+:root{
+  --bg:#FCFCFD; --fg:#111114; --muted:#6A6E76; --rule:#E5E6EA; --accent:#2B50E6;
+  --sans:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0D0E10;--fg:#ECECEE;--muted:#8D9098;--rule:#232529;--accent:#8CA2FF;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D0E10;--fg:#ECECEE;--muted:#8D9098;--rule:#232529;--accent:#8CA2FF;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--sans);margin:0;
+  padding-block:72px 96px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));
+  -webkit-font-smoothing:antialiased}
+main{max-width:860px;margin:0 auto}
+a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule);transition:border-color .2s,color .2s}
+a:hover{color:var(--accent);border-color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.label{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;margin-bottom:56px}
+header .name{font-weight:600;letter-spacing:-.01em}
+header nav{display:flex;gap:20px;font:400 13px var(--mono)}
+header nav a{border:0;color:var(--muted)}
+header nav a:hover{color:var(--accent)}
+h1{font:300 clamp(34px,6.2vw,60px)/1.1 var(--sans);letter-spacing:-.035em;margin:0 0 28px;text-wrap:balance;max-width:16em}
+h1 b{font-weight:500}
+.lede{color:var(--muted);max-width:34em;margin:0 0 40px}
+section{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 32px;padding-top:28px;margin-top:96px;border-top:1px solid var(--rule)}
+section>.label{padding-top:4px}
+.work{list-style:none;margin:0;padding:0;display:grid;gap:36px}
+.work h3{font:500 17px/1.4 var(--sans);margin:0 0 4px;letter-spacing:-.01em}
+.work p{margin:0;color:var(--muted);max-width:38em}
+.work .n{font:400 13px var(--mono);color:var(--accent);margin-top:6px;display:block;font-variant-numeric:tabular-nums}
+.job{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 16px;margin-bottom:28px}
+.job:last-child{margin-bottom:0}
+.job .t{font-weight:500}
+.job .d{font:400 13px var(--mono);color:var(--muted);text-align:right;padding-top:3px}
+.job .s{grid-column:1/-1;color:var(--muted);font-size:15px}
+.skills{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px 20px;margin:0;font-size:15px}
+.skills dt{font:400 13px var(--mono);color:var(--muted);padding-top:2px}
+.skills dd{margin:0}
+.contact p{margin:0 0 6px}
+.contact .mail{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.contact .mail span{font:400 15px var(--mono);word-break:break-all}
+.copy{all:unset;cursor:pointer;font:400 12px var(--mono);color:var(--muted);border:1px solid var(--rule);padding:2px 10px;border-radius:99px}
+.copy:hover{color:var(--accent);border-color:var(--accent)}
+.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.links{display:flex;gap:22px;flex-wrap:wrap;font:400 14px var(--mono)}
+footer{margin-top:96px;font:400 12px var(--mono);color:var(--muted)}
+.trace{margin:0 0 72px;font:400 13px/1.75 var(--mono);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.trace .hd{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+.trace .hd button{all:unset;cursor:pointer;color:var(--muted);border-bottom:1px solid var(--rule)}
+.trace .hd button:hover{color:var(--accent);border-color:var(--accent)}
+.trace .hd button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.trace .ln{display:grid;grid-template-columns:78px minmax(0,1fr);gap:0 12px}
+.trace .ln.pend{visibility:hidden}
+.trace .k{color:var(--muted)}
+.trace .off{visibility:hidden}
+.trace .ln.guard .k,.trace .ln.guard .on{color:var(--accent)}
+.trace .ln.end .on{color:var(--fg);font-weight:500}
+.trace .ln.act .on::after{content:"";display:inline-block;width:7px;height:14px;margin-left:2px;vertical-align:-2px;background:var(--accent);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.flow{position:relative;margin:0 0 44px;padding:0}
+.flow canvas{display:block;width:100%;height:250px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:8px;font:400 12px var(--mono);color:var(--muted)}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:0}
+.legend .d1{background:var(--muted)}
+.legend .d2{background:var(--accent)}
+.legend .d3{border:1.5px solid var(--accent)}
+@media (max-width:640px){
+  .flow canvas{height:230px}
+  body{padding-block:40px 64px}
+  header{margin-bottom:64px}
+  section{grid-template-columns:minmax(0,1fr);margin-top:64px;gap:20px}
+  .skills{grid-template-columns:minmax(0,1fr);gap:2px}
+  .skills dd{margin-bottom:12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<main>
+  <header>
+    <span class="name">Abhinav Kumar</span>
+    <nav aria-label="Sections"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <div class="trace" id="trace" title="Click to skip">
+    <div class="hd"><span>example agent run &middot; limit 6 steps, $0.15</span><span><span id="trStat">5 steps &middot; $0.04</span> &nbsp; <button type="button" id="trReplay">replay</button></span></div>
+    <div id="trLines"></div>
+  </div>
+
+  <h1>I build <b>AI systems, data pipelines and backend services</b> that run in production.</h1>
+  <p class="lede">Software engineer with 5+ years at Cimpress (Vistaprint) in Bengaluru. Python, AWS and Snowflake, with LLM agents and RAG in daily use.</p>
+
+  <figure class="flow" aria-label="Diagram: an agent routes each record down one of three paths, retries failures on another path, validates results, and holds rejects for human review.">
+    <canvas id="flow" aria-hidden="true"></canvas>
+    <figcaption class="legend"><span><i class="d1"></i>record</span><span><i class="d2"></i>retried with backoff</span><span><i class="d3"></i>held for human review</span></figcaption>
+  </figure>
+  <section id="work">
+    <div class="label">Selected work</div>
+    <ul class="work">
+      <li>
+        <h3>Doc Intent</h3>
+        <p>An AI engine that reads an uploaded design (flyer, card, signage) and infers industry, occasion and product type. A LangGraph agent workflow with RAG over the industry taxonomy, so answers resolve to valid entries instead of free-form labels.</p>
+        <span class="n">1K+ requests/day in production</span>
+      </li>
+      <li>
+        <h3>LLM-orchestrated enrichment agent</h3>
+        <p>The LLM plans, and code enforces. Pydantic-validated decisions, hard budgets per record, provenance on every write, a shadow-mode rollout against the old pipeline, and an audit trail with alerts.</p>
+        <span class="n">150K+ tool executions/month</span>
+      </li>
+      <li>
+        <h3>Industry classification</h3>
+        <p>LLM classification replacing brittle SERP-to-taxonomy mappings, with a confidence threshold and a Slack review loop for uncertain cases.</p>
+        <span class="n">102 categories &middot; ~96% validated accuracy &middot; 30K&ndash;50K calls/day</span>
+      </li>
+      <li>
+        <h3>Enrichment pipeline scale-up</h3>
+        <p>Redesigned parallel execution across Lambda, Step Functions, Fargate and EC2. Skipped redundant provider calls and added a DynamoDB cache.</p>
+        <span class="n">4&ndash;5K to 30K+ records/day &middot; ~$300K saved &middot; 20&ndash;30% lower AWS cost</span>
+      </li>
+      <li>
+        <h3>Semantic data quality on Snowflake</h3>
+        <p>Validation with Snowflake rules and Cortex that flags suspicious records before delivery to tenants. Schemas and dbt pipelines for 3&ndash;4 tenants.</p>
+        <span class="n">~23M records</span>
+      </li>
+      <li>
+        <h3>Self-service enrichment API</h3>
+        <p>API Gateway, Lambda and Step Functions replacing CSV workflows and manual support, with validation at the request boundary.</p>
+        <span class="n">Adopted by all 12 tenants</span>
+      </li>
+      <li>
+        <h3>REST APIs</h3>
+        <p>FastAPI and Flask services on DynamoDB, Snowflake and OpenSearch, with async processing, JWT auth, OpenAPI docs and load testing.</p>
+        <span class="n">20+ APIs</span>
+      </li>
+      <li>
+        <h3><a href="https://github.com/singhdotabhinav/llm-duel-arena">LLM Duel Arena</a></h3>
+        <p>Open source. LLMs from OpenAI, Anthropic, Ollama and HuggingFace play chess, tic-tac-toe, racing and word association behind one provider interface, with move validation and constrained generation.</p>
+        <span class="n">95%+ legal moves</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <div class="label">Experience</div>
+    <div>
+      <div class="job">
+        <div class="t">Senior Software Engineer, Cimpress Technology (Vistaprint)</div>
+        <div class="d">Jul 2024 &ndash; now</div>
+        <div class="s">Marketing Automation Technology. Own AI agents, enrichment pipelines and APIs end to end, including on-call. Mentor 2 engineers.</div>
+      </div>
+      <div class="job">
+        <div class="t">Software Engineer, Cimpress Technology</div>
+        <div class="d">Aug 2021 &ndash; Jul 2024</div>
+        <div class="s">Python services and enrichment pipelines, GPT-based classification, Organization ID rebuild, and CI-tested integrations.</div>
+      </div>
+      <div class="job">
+        <div class="t">B.E. Computer Science, Siddaganga Institute of Technology</div>
+        <div class="d">2017 &ndash; 2021</div>
+        <div class="s">CGPA 8.4 / 10</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="label">Skills</div>
+    <dl class="skills">
+      <dt>AI</dt><dd>LangGraph, LangChain, agents, tool calling, RAG, vector search, guardrails, LLM evaluation, OpenAI, Anthropic, Ollama, HuggingFace</dd>
+      <dt>Data</dt><dd>Snowflake, Snowflake Cortex, dbt, advanced SQL, data modeling, DynamoDB, PostgreSQL, OpenSearch, Redis</dd>
+      <dt>Backend</dt><dd>Python (AsyncIO), FastAPI, Flask, REST, OpenAPI, JWT, OAuth2, microservices, EventBridge, SQS, Kafka</dd>
+      <dt>Cloud</dt><dd>AWS (Lambda, Step Functions, API Gateway, ECS, Fargate, EC2, S3, CloudWatch), Docker, Kubernetes, Terraform, GitLab CI/CD, GitHub Actions</dd>
+      <dt>Quality</dt><dd>Pytest, integration and load testing, New Relic, OpenTelemetry, Grafana, Prometheus, PagerDuty</dd>
+    </dl>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="label">Contact</div>
+    <div>
+      <p>Open to AI, data and backend roles, and forward deployed work.</p>
+      <div class="mail"><span id="mailText">abhinav6400625@gmail.com</span><button class="copy" id="copyBtn" type="button">Copy</button></div>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/dotabhinav/">LinkedIn</a>
+        <a href="https://github.com/singhdotabhinav">GitHub</a>
+      </div>
+      <p style="margin-top:20px" class="label">Bengaluru, India</p>
+    </div>
+  </section>
+
+  <footer>Abhinav Kumar</footer>
+</main>
+
+<script>
+(function(){
+  /* agent trace intro: types an example run, then stays as an audit log */
+  (function(){
+    var L=[
+      ['plan','missing: industry, address, headcount','',1,.01],
+      ['tool','provider.lookup(domain) → 2 fields filled','',2,.03],
+      ['validate','schema ok · confidence 0.94 ≥ 0.90 threshold','',3,.03],
+      ['guard','rejected unknown tool "web_browse" before execution','guard',4,.03],
+      ['write','2 fields · provenance recorded · audit row saved','',5,.04],
+      ['done','5 steps · $0.04 · 0 escalations','end',5,.04]
+    ];
+    var box=document.getElementById('trLines'),stat=document.getElementById('trStat'),rows=[],timer=null,token=0;
+    var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function build(){
+      box.textContent='';rows=L.map(function(l){
+        var d=document.createElement('div');d.className='ln '+l[2]+' pend';
+        d.innerHTML='<span class="k"></span><span class="v"><span class="on"></span><span class="off"></span></span>';
+        d.querySelector('.k').textContent=l[0];d.querySelector('.off').textContent=l[1];
+        box.appendChild(d);return d});
+    }
+    function setStat(i){var l=L[i];stat.textContent=l[3]+(l[3]===1?' step':' steps')+' · $'+l[4].toFixed(2)}
+    function finish(){
+      token++;clearTimeout(timer);
+      rows.forEach(function(r,i){r.className='ln '+L[i][2];r.querySelector('.on').textContent=L[i][1];r.querySelector('.off').textContent=''});
+      setStat(L.length-1);
+    }
+    function play(){
+      token++;var my=token;clearTimeout(timer);build();
+      if(still){finish();return}
+      stat.textContent='0 steps · $0.00';
+      var i=0;
+      function line(){
+        if(my!==token)return;
+        if(i>=L.length){rows.forEach(function(r){r.classList.remove('act')});return}
+        var r=rows[i],on=r.querySelector('.on'),off=r.querySelector('.off');
+        r.classList.remove('pend');r.classList.add('act');
+        var idx=i;setStat(idx);
+        function ch(){
+          if(my!==token)return;
+          if(off.textContent.length){on.textContent+=off.textContent[0];off.textContent=off.textContent.slice(1);timer=setTimeout(ch,12)}
+          else{r.classList.remove('act');i++;timer=setTimeout(line,idx===L.length-2?420:260)}
+        }
+        timer=setTimeout(ch,120);
+      }
+      timer=setTimeout(line,500);
+    }
+    document.getElementById('trace').addEventListener('click',function(e){if(e.target.id==='trReplay')return;finish()});
+    document.getElementById('trReplay').addEventListener('click',function(e){e.stopPropagation();play()});
+    build();finish();
+    var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();play()}},{threshold:.3});io.observe(document.getElementById('trace'));
+  })();
+  /* agent routing diagram: records pick a path, failures back off and retry elsewhere, a gate validates, rejects wait for a human */
+  (function(){
+    var cv=document.getElementById('flow'),cx=cv.getContext('2d'),W=0,H=0,P={},dots=[],run=true,t0=0,spawnT=0,col={};
+    var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var lab={l:['provider A','cache','provider B'],a:'agent',g:'validate'},PF=[.32,.05,.28],WT=[.4,.3,.3];
+    function colors(){var c=getComputedStyle(document.documentElement);col.m=c.getPropertyValue('--muted').trim();col.r=c.getPropertyValue('--rule').trim();col.a=c.getPropertyValue('--accent').trim();col.bg=c.getPropertyValue('--bg').trim();col.fg=c.getPropertyValue('--fg').trim()}
+    function size(){var r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);
+      P.src={x:W*.03,y:H*.5};P.agent={x:W*.2,y:H*.5};
+      P.lane=[{x:W*.45,y:H*.2},{x:W*.45,y:H*.5},{x:W*.45,y:H*.8}];
+      P.gate={x:W*.72,y:H*.5};P.out={x:W*.97,y:H*.5};P.rev={x:W*.72,y:H*.9}}
+    function setPath(d,pts){d.pts=pts;d.i=0}
+    function advance(d,dt){
+      var rem=d.v*dt;
+      while(rem>0&&d.i<d.pts.length){
+        var t=d.pts[d.i],dx=t.x-d.x,dy=t.y-d.y,dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<=rem){d.x=t.x;d.y=t.y;rem-=dist;d.i++}else{d.x+=dx/dist*rem;d.y+=dy/dist*rem;rem=0}
+      }
+      return d.i>=d.pts.length;
+    }
+    function spawn(){
+      var d={x:P.src.x,y:P.src.y,v:W*.11,col:'n',state:'in',tries:0,tried:[],hold:0,alpha:1,lane:0,pts:[],i:0};
+      setPath(d,[P.agent]);dots.push(d);
+    }
+    function pick(d){
+      var w=0,i,tot=0;for(i=0;i<3;i++)if(d.tried.indexOf(i)<0)tot+=WT[i];
+      var r=Math.random()*tot;
+      for(i=0;i<3;i++){if(d.tried.indexOf(i)>=0)continue;w+=WT[i];if(r<=w)return i}
+      return 1;
+    }
+    function step(dt){
+      spawnT-=dt;
+      if(spawnT<=0&&dots.length<40){spawn();spawnT=.5+Math.random()*.3}
+      for(var k=dots.length-1;k>=0;k--){
+        var d=dots[k],s=d.state;
+        if(s==='in'){if(advance(d,dt)){d.state='think';d.hold=.18}}
+        else if(s==='think'){d.hold-=dt;if(d.hold<=0){d.lane=pick(d);setPath(d,[P.lane[d.lane]]);d.state='toLane'}}
+        else if(s==='toLane'){if(advance(d,dt)){
+          if(Math.random()>=PF[d.lane]){d.state='toGate';setPath(d,[P.gate])}
+          else{d.tries++;d.tried.push(d.lane);d.col='a';
+            if(d.tries>2){d.col='r';d.state='toRev';setPath(d,[P.rev])}
+            else{d.state='backoff';d.hold=.3*d.tries}}}}
+        else if(s==='backoff'){d.hold-=dt;if(d.hold<=0){var L=P.lane[d.lane],A=P.agent;
+          setPath(d,[{x:(L.x+A.x)/2,y:(L.y+A.y)/2+(L.y<A.y?-22:L.y>A.y?22:-20)},A]);d.state='retry'}}
+        else if(s==='retry'){if(advance(d,dt)){d.state='think';d.hold=.12}}
+        else if(s==='toGate'){if(advance(d,dt)){
+          if(Math.random()<.88){d.state='out';setPath(d,[P.out])}
+          else{d.col='r';d.state='toRev';setPath(d,[P.rev])}}}
+        else if(s==='out'){if(advance(d,dt))d.state='fade'}
+        else if(s==='toRev'){if(advance(d,dt)){d.state='held';d.hold=2.4}}
+        else if(s==='held'){d.hold-=dt;if(d.hold<=0)d.state='fade'}
+        else if(s==='fade'){d.alpha-=dt*2.2;if(d.alpha<=0)dots.splice(k,1)}
+        if(d.state==='held')d.v=0;
+      }
+    }
+    function line(a,b,dash){cx.setLineDash(dash||[]);cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}
+    function txt(t,x,y,al){cx.textAlign=al||'center';cx.fillText(t,x,y)}
+    function draw(){
+      cx.clearRect(0,0,W,H);
+      cx.lineWidth=1;cx.strokeStyle=col.r;
+      line(P.src,P.agent);
+      for(var i=0;i<3;i++){line(P.agent,P.lane[i]);line(P.lane[i],P.gate)}
+      line(P.gate,P.out);
+      cx.strokeStyle=col.a;cx.globalAlpha=.55;line(P.gate,P.rev,[3,4]);cx.globalAlpha=1;cx.setLineDash([]);
+      cx.fillStyle=col.bg;cx.strokeStyle=col.m;cx.lineWidth=1.5;
+      cx.beginPath();cx.arc(P.agent.x,P.agent.y,10,0,6.283);cx.fill();cx.stroke();
+      cx.fillStyle=col.a;cx.beginPath();cx.arc(P.agent.x,P.agent.y,3,0,6.283);cx.fill();
+      cx.fillStyle=col.bg;cx.lineWidth=1.2;
+      for(i=0;i<3;i++){cx.beginPath();cx.arc(P.lane[i].x,P.lane[i].y,4.5,0,6.283);cx.fill();cx.stroke()}
+      cx.strokeStyle=col.m;cx.lineWidth=2;line({x:P.gate.x,y:P.gate.y-14},{x:P.gate.x,y:P.gate.y+14});
+      cx.strokeStyle=col.a;cx.lineWidth=1.2;cx.strokeRect(P.rev.x-5,P.rev.y-5,10,10);
+      cx.font='400 '+(W<520?10:11)+'px "Geist Mono",ui-monospace,Menlo,monospace';cx.fillStyle=col.m;
+      txt(lab.a,P.agent.x,P.agent.y+28);
+      txt(lab.l[0],P.lane[0].x,P.lane[0].y-12);
+      txt(lab.l[1],P.lane[1].x,P.lane[1].y-12);
+      txt(lab.l[2],P.lane[2].x,P.lane[2].y+20);
+      txt(lab.g,P.gate.x,P.gate.y-24);
+      txt('accepted',W,P.out.y-12,'right');
+      txt('human review',P.rev.x+14,P.rev.y+4,'left');
+      for(var k=0;k<dots.length;k++){
+        var d=dots[k],r=d.state==='held'?3.4:2.6;
+        cx.globalAlpha=d.alpha*(d.col==='n'?.8:1);
+        cx.beginPath();cx.arc(d.x,d.y,r,0,6.283);
+        if(d.col==='r'){cx.fillStyle=col.bg;cx.fill();cx.strokeStyle=col.a;cx.lineWidth=1.6;cx.stroke()}
+        else{cx.fillStyle=d.col==='a'?col.a:col.m;cx.fill()}
+      }
+      cx.globalAlpha=1;
+    }
+    function frame(t){
+      if(!run)return;
+      var dt=Math.min((t-t0)/1000||0,.05);t0=t;
+      step(dt);draw();
+      requestAnimationFrame(frame);
+    }
+    function boot(){
+      colors();size();dots=[];
+      if(still){for(var i=0;i<260;i++)step(.05);draw();run=false;return}
+      for(var j=0;j<150;j++)step(.05);
+      t0=performance.now();requestAnimationFrame(frame);
+    }
+    new IntersectionObserver(function(e){if(still)return;var v=e[0].isIntersecting;if(v&&!run){run=true;t0=performance.now();requestAnimationFrame(frame)}else if(!v)run=false},{threshold:0}).observe(cv);
+    addEventListener('resize',function(){size();if(still)draw()});
+    var cn=0,orig=draw;draw=function(){if((cn++&63)===0)colors();orig()};
+    boot();
+  })();
+  var cb=document.getElementById('copyBtn');
+  cb.addEventListener('click',function(){
+    var t=document.getElementById('mailText').textContent;
+    function done(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy'},1500)}
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('mailText'));var s=getSelection();s.removeAllRanges();s.addRange(r)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel)}else{sel()}
+  });
+})();
+</script>
+</body>
+</html>
