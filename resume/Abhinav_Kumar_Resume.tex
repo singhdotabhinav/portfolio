@@ -1,0 +1,80 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.03}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-6pt}\rule{\linewidth}{0.6pt}]
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+\setlist[itemize]{leftmargin=14pt,itemsep=1.6pt,topsep=2pt,parsep=0pt,label=\textbullet}
+\newcommand{\role}[4]{\textbf{#1}\hfill\textbf{#2}\\ \textit{#3}\hfill\textit{#4}\par\vspace{1pt}}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Abhinav Kumar}\\[3pt]
+{\small\bfseries AI Engineer | Data Engineer | Backend Engineer | Forward Deployed AI Engineer}\\[1pt]
+{\small Python \& FastAPI | LLM Agents \& RAG | Snowflake \& Data Pipelines | AWS \& Docker}\\[2pt]
+Bengaluru, India | abhinav6400625@gmail.com | +91-9916118034\\
+\href{https://www.linkedin.com/in/dotabhinav/}{LinkedIn} | \href{https://github.com/singhdotabhinav}{GitHub} | \href{https://singhdotabhinav.github.io/portfolio}{Portfolio}
+\end{center}
+
+\section*{Professional Summary}
+Software engineer with 5+ years building and operating production Python systems across AI, data, and backend: LLM agents, RAG, high-volume data pipelines, and REST APIs on AWS. Shipped Doc Intent, a LangGraph and RAG design-intent engine serving \textbf{1K+ requests/day}; an LLM-orchestrated enrichment agent (\textbf{150K+ tool executions/month}) with schema-validated actions, cost budgets, and shadow-mode rollout; and LLM classification at \textbf{96\%} accuracy across \textbf{30K--50K calls/day}. Scaled a data platform \textbf{6x} (\textbf{30K+ records/day}) and delivered cost work that saved \textbf{\$300K}. Work directly with product, data, and customer-facing stakeholders to take solutions from requirements to production, with strong testing (Pytest), CI/CD, observability, and on-call ownership.
+
+\section*{Technical Skills}
+{\small\begin{tabularx}{\linewidth}{@{}p{1.2in}X@{}}
+\textbf{LLM \& Agents:} & LangGraph, LangChain, AI Agents, Tool Calling, Pydantic Structured Outputs, Guardrails, Human-in-the-Loop, Prompt Engineering, Prompt-Injection Defense, Shadow-Mode Rollout \\[2pt]
+\textbf{RAG \& Retrieval:} & RAG, Embeddings, Vector Databases, Vector Search, Taxonomy Grounding, OpenSearch Relevance Tuning, Snowflake Cortex \\[2pt]
+\textbf{Models \& Eval:} & OpenAI, Anthropic, Grok (xAI), Ollama, HuggingFace, LLM Evaluation, LLM Tracing, A/B Testing \\[2pt]
+\textbf{Languages:} & Python (AsyncIO, ThreadPoolExecutor), SQL, TypeScript \\[2pt]
+\textbf{Data Engineering:} & Data Pipelines, ETL/ELT, Snowflake, dbt, Data Modeling, Advanced SQL, Data Quality \& Validation, DynamoDB, PostgreSQL, MongoDB, Redis, OpenSearch \\[2pt]
+\textbf{Backend \& APIs:} & FastAPI, Flask, REST APIs, Microservices, OpenAPI/Swagger, Postman, JWT, OAuth2, Rate Limiting, Event-Driven Architecture (EventBridge, SQS, Kafka) \\[2pt]
+\textbf{Cloud \& DevOps:} & AWS (S3, Lambda, Step Functions, API Gateway, Fargate, ECS, EC2, ECR, VPC, CloudWatch, SQS, EventBridge), Docker, Kubernetes, Terraform, GitLab CI/CD, GitHub Actions \\[2pt]
+\textbf{Testing \& Monitoring:} & Pytest, Integration \& Contract Testing, Load Testing, New Relic, CloudWatch, OpenTelemetry, Grafana, Prometheus, PagerDuty \\[2pt]
+\textbf{AI Dev Tools:} & Claude Code, Cursor, Google Antigravity \\
+\end{tabularx}}
+
+\section*{Experience}
+\role{Cimpress Technology (Vistaprint), MAT -- Marketing Automation Technology}{Bengaluru, India}{Senior Software Engineer}{Jul 2024 -- Present}
+\begin{itemize}
+\item \textbf{Led -- LLM-Orchestrated Enrichment Agent:} Built an agentic enrichment system where an LLM acts purely as a decision planner: it inspects each company record, calls external providers (PDL, HitHorizons, Wappalyzer, KVK) only for missing or low-confidence fields, retries with exponential backoff, and falls back to secondary providers. Runs \textbf{50K--100K records/month} with 2--4 autonomous actions per record (\textbf{150K+ tool executions/month}), publishing completion events via EventBridge/SQS to CRM sync and scoring pipelines.
+\item \textbf{Led -- Agent Guardrails \& Safety:} Constrained the LLM to Pydantic-validated JSON decisions, rejecting hallucinated tools or invalid arguments before execution. Enforced deterministic source-precedence resolvers, conditional field-level writes with provenance, and hard budgets of 6 steps and \$0.15 per record; treated scraped and third-party payloads as untrusted to defend against indirect prompt injection.
+\item \textbf{Led -- Agent Evaluation \& Observability:} Ran the agent in two-week shadow mode against the legacy pipeline and gold-standard sets before granting write access. Logged every step (input state, reasoning, action, latency, policy result) to an immutable audit trail, with CloudWatch alerts on spend, failure, and schema-validation spikes and a dead-letter queue for human review (alert threshold: $>$5\% escalations).
+\item \textbf{Led -- Doc Intent (AI Design-Intent Engine):} Built an AI product where users upload a design image (flyer, card, signage) and the system infers industry, cause or occasion, product type, and other mass-customization attributes. Orchestrated multi-step reasoning as a LangGraph agent workflow; serves \textbf{1K+ requests/day} in production.
+\item \textbf{RAG Retrieval for Doc Intent:} Designed the retrieval layer: embedded the industry-keyword taxonomy, retrieved the most relevant keyword candidates per design, and grounded LLM predictions in them so outputs resolve to valid taxonomy entries instead of free-form labels.
+\item \textbf{Led -- AI Industry Classification:} Built LLM-based classification to replace brittle SERP-to-taxonomy mappings, mapping companies to \textbf{102 categories} at about \textbf{96\%} manually validated accuracy. Added a 90\% confidence-threshold guardrail and a Slack human-in-the-loop review for uncertain cases; handles \textbf{30K--50K LLM calls/day}.
+\item \textbf{Led -- Data Pipeline Scale-Up:} Scaled customer-data enrichment pipelines from about 4--5K to \textbf{30K+ records/day} by redesigning parallel execution across AWS Lambda, Step Functions, Fargate, EC2, AsyncIO, and ThreadPoolExecutor, supporting a \textbf{1M-record} requirement. Designed SERP-result analysis to skip redundant Google Places calls (about \textbf{\$300K saved}) and a DynamoDB caching layer that cut pipeline AWS costs by about \textbf{20--30\%}.
+\item \textbf{Led -- Self-Service Enrichment API:} Launched a self-service API (API Gateway, Lambda, Step Functions) replacing CSV workflows and manual support; adopted by \textbf{all 12 tenants}. Added request-boundary validation to keep bad data out of downstream workflows.
+\item \textbf{Data Quality \& Warehousing:} Re-engineered address extraction with LLM-based field classification (coverage +10\%, accuracy +5\%) and moved data-quality checks to semantic validation using Snowflake rules, Snowflake Cortex, and a Grok-powered bot, flagging suspicious records before tenant delivery. Designed Snowflake schemas and dbt pipelines for 3--4 tenants on about \textbf{23M records}.
+\item Built and maintain \textbf{20+ REST APIs} with FastAPI and Flask on DynamoDB, Snowflake, and OpenSearch with async processing, JWT authentication and authorization, and OpenAPI documentation. Tuned OpenSearch relevance for the EVO Portal and used load testing to catch concurrency bottlenecks before rollout.
+\item Built CI/CD and infrastructure automation with GitLab, Docker, and Terraform; deploy on ECS with monitoring in New Relic and CloudWatch. Write Pytest unit and integration tests (including automated Lambda tests in CI).
+\item Own services end-to-end through PagerDuty on-call; led the Organization ID architecture redesign; use AI-assisted development (Cursor, Claude Code) for large refactors. Partner with product, data, and customer-facing stakeholders, mentor 2 junior engineers, and review PRs daily.
+\end{itemize}
+
+\role{Cimpress Technology}{Bengaluru, India}{Software Engineer}{Aug 2021 -- Jul 2024}
+\begin{itemize}
+\item Built and maintained Python services and enrichment pipelines for high-volume customer data, including production monitoring, incident resolution, and optimization.
+\item Integrated GPT-based classification for industry mapping and address traits, reaching about \textbf{90\%} accuracy in early validation and reducing manual classification effort.
+\item Converted Lambda integrations into API-based workflows to enable automated integration testing, reducing deployment failures by \textbf{35\%}.
+\item Revamped Organization ID functionality from scratch, working with Printdeal to resolve organization identity issues.
+\item Implemented website caching (Redis) to cut repeated external requests, and worked on GCP cost optimization while preserving enrichment accuracy.
+\end{itemize}
+
+\section*{Projects}
+\role{LLM Duel Arena -- Open Source}{\href{https://github.com/singhdotabhinav/llm-duel-arena}{GitHub}}{}{}
+\begin{itemize}
+\item Built a full-stack platform where LLMs compete in Chess, Tic-Tac-Toe, Racing, and Word Association, with a unified provider abstraction for OpenAI, Anthropic, Ollama, and HuggingFace.
+\item Implemented game-specific prompt templates, constrained generation, move validation, and result tracking, reaching \textbf{95\%+} legal move generation.
+\end{itemize}
+
+\section*{Education}
+\textbf{Siddaganga Institute of Technology, Tumakuru}\hfill\textbf{2017 -- 2021}\\
+B.E., Computer Science \& Engineering | CGPA: 8.4 / 10
+
+\end{document}
