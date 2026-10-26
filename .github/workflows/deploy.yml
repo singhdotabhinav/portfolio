@@ -28,6 +28,16 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Build resume PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Abhinav_Kumar_Resume.tex
+          working_directory: resume
+          latexmk_use_xelatex: true
+
+      - name: Add resume to site
+        run: cp resume/Abhinav_Kumar_Resume.pdf static-site/Abhinav_Kumar_Resume.pdf
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
